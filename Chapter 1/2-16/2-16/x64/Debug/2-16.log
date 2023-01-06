@@ -1,0 +1,5 @@
+﻿  2-16.cpp
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-16\2-16\2-16.cpp(11,30): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-16\2-16\2-16.cpp(12,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-16\2-16\2-16.cpp(14,2): error C2065: 'cout': undeclared identifier
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-16\2-16\2-16.cpp(15,2): error C2065: 'cout': undeclared identifier

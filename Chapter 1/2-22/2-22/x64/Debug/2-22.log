@@ -1,0 +1,6 @@
+﻿  2-22.cpp
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-22\2-22\2-22.cpp(12,23): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-22\2-22\2-22.cpp(13,24): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-22\2-22\2-22.cpp(14,21): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-22\2-22\2-22.cpp(11,9): warning C4101: 'contribution': unreferenced local variable
+  2-22.vcxproj -> C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-22\x64\Debug\2-22.exe

@@ -1,0 +1,4 @@
+﻿  2-23.cpp
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-23\2-23\2-23.cpp(8,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-23\2-23\2-23.cpp(11,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  2-23.vcxproj -> C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\2-23\x64\Debug\2-23.exe
