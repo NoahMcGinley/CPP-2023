@@ -5,8 +5,9 @@ using namespace std;
 int main()
 {
 	// Defines variables
-	double sales1, sales2, salesPercent,
-		revenue1, revenue2;
+	int sales1, sales2;
+	double salesPercent;
+	int revenue1, revenue2;
 	
 	// Assigns data to variables
 	sales1 = 8600000;
@@ -20,4 +21,6 @@ int main()
 	// Outputs to user
 	cout << "If total sales are " << sales1 << " million the midwest division is estimated to generate " << revenue1 << " million\n";
 	cout << "If total sales are " << sales2 << " million the midwest division is estimated to generate " << revenue2 << " million";
+
+	return 0;
 }

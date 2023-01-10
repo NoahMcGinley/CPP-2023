@@ -9,4 +9,6 @@ int main()
 	cout << "A int data type uses " << sizeof(int) << " byte(s) of memory" << "\n";
 	cout << "A float data type uses " << sizeof(float) << " byte(s) of memory" << "\n";
 	cout << "A double data type uses " << sizeof(double) << " byte(s) of memory" << "\n";
+
+	return 0;
 }

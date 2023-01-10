@@ -15,4 +15,6 @@ int main()
 	// Outputs to user
 	cout << "The total annual pay is: " << annualPay << endl;
 
+	return 0;
+
 }
