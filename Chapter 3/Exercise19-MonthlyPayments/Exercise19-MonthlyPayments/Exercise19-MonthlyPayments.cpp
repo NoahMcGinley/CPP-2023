@@ -12,10 +12,11 @@ int main()
 	monthly loan payments*/
 
 	// Defines varialbes
-	float loanAmount, annualInterestRate,
+	double loanAmount, annualInterestRate,
 		numPayments, monthlyPayment,
 		amountPaidBack, interestPaid,
-		monthlyInterestRate, totalPaid;
+		monthlyInterestRate, totalPaid,
+		monthlyInterestOutput;
 
 	// Input
 	cout << "Enter the loan amount: ";
@@ -34,14 +35,16 @@ int main()
 	totalPaid = monthlyPayment * numPayments;
 	interestPaid = totalPaid - loanAmount;
 	amountPaidBack = loanAmount + interestPaid;
+	monthlyInterestOutput = monthlyInterestRate * 100;
 
 	// Output
-	cout << "Loan Amount:" << loanAmount << endl;
-	cout << "Monthly Interest Rate:" << monthlyInterestRate << "%" << endl;
-	cout << "Number of Payments:" << numPayments << endl;
-	cout << "Monthly Payments:" << monthlyPayment << endl;
-	cout << "Amount Paid Back:" << amountPaidBack << endl;
-	cout << "Loan Amount:" << interestPaid << endl;
+	cout << fixed << setprecision(2);
+	cout << "Loan Amount:\t\t$\t" << loanAmount << endl;
+	cout  << "Monthly Interest Rate:\t\t" << right << monthlyInterestOutput << "%" << endl;
+	cout << "Number of Payments:\t\t" << numPayments << endl;
+	cout << "Monthly Payments:\t$\t" << monthlyPayment << endl;
+	cout << "Amount Paid Back:\t$\t" << amountPaidBack << endl;
+	cout << "Loan Amount:\t\t$\t" << interestPaid << endl;
 
 	return 0;
 
