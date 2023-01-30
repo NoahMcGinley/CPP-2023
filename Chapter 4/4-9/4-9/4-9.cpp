@@ -7,6 +7,11 @@ using namespace std;
 
 int main()
 {
+	/* Accepts no arguments
+	asks user for two numbers in which to divide
+	and outputs an error in the denominator is 0*/
+
+	// Defines variables
 	float int1, int2;
 
 	// Input
