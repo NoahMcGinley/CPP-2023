@@ -1,4 +1,0 @@
-﻿  Exercise2-SalesPredicition.cpp
-C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\Exercise2-SalesPredicition\Exercise2-SalesPredicition\Exercise2-SalesPredicition.cpp(18,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\Exercise2-SalesPredicition\Exercise2-SalesPredicition\Exercise2-SalesPredicition.cpp(19,20): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-  Exercise2-SalesPredicition.vcxproj -> C:\Users\SNM00013\Desktop\CPP-2022\Chapter 1\Exercise2-SalesPredicition\x64\Debug\Exercise2-SalesPredicition.exe
