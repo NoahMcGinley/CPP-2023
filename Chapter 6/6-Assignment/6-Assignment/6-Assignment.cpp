@@ -1,20 +1,22 @@
 #include <iomanip>
 #include <iostream>
+#include <cstdlib>
+#include <cmath>
 using namespace std;
 
 void lowestScoreDrop();
 void overloadedHospital();
 void population();
-//void rpsls();
+void rpslsMain();
 
 
 
-/*########################
+/*------------------------
 # Exercise 103 - Exercise menu
 # main accepts no arguments
 # displays menu and calls
 # function chosen by the user
-##########################*/
+--------------------------*/
 int main()
 {
 	// Declares variables and outputs menu
@@ -47,7 +49,7 @@ int main()
 		}
 		else if (choice == 4)
 		{
-			//rpsls();
+			rpslsMain();
 		}
 		else
 		{
@@ -287,30 +289,237 @@ void population()
 	long double pop;
 	
 	// User input
+	// Years
 	cout << "How many years should be calculates?: ";
 	cin >> years;
-	cout << "What is the starting size of the population?: ";
-	cin >> pop;
-	cout << "What is the annual birth rate?: ";
-	cin >> birthR;
-	cout << "What is the annual death rate?: ";
-	cin >> deathR;
-
-	birthR /= 1000;
-	deathR /= 1000;
-
-	for (int i = 1; i <= years; i++)
+	while (years < 2)
 	{
-		pop = calcPopulation(pop, birthR, deathR);
-		cout << pop << endl;
+		cout << "Invalid input enter a number greater than 0: ";
+		cin >> years;
 	}
 
-	// Calls calcPopulation() to calculate population from year to year
+	// Starting population
+	cout << "What is the starting size of the population?: ";
+	cin >> pop;
+	while (pop < 2)
+	{
+		cout << "Invalid input enter a number greater than 0: ";
+		cin >> pop;
+	}
+	// Birth rate
 
+	cout << "What is the annual birth rate?: ";
+	cin >> birthR;
+	while (birthR < 2)
+	{
+		cout << "Invalid input enter a number greater than 0: ";
+		cin >> birthR;
+	}
+	// Death rate
+
+	cout << "What is the annual death rate?: ";
+	cin >> deathR;
+	while (deathR < 2)
+	{
+		cout << "Invalid input enter a number greater than 0: ";
+		cin >> deathR;
+	}
+
+	cout << endl;
+	// Loops to call calcPopulation() and outputs the population from year to year
+	for (int i = 1; i <= years; i++)
+	{
+		// Calls calcPopulation() to calculate population from year to year
+		pop = calcPopulation(pop, birthR, deathR);
+
+		// Outputs result
+		cout << "Year " << i << ": " << pop << endl;
+	}
 }
 
+// accepts ints pop, birthR, and deathR
+// uses values to calculate and return
+// the population for the given year
 int calcPopulation(int pop, int birthR, int deathR)
 {
 	long double newPop = pop + (pop * birthR) - (pop * deathR);
 	return newPop;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+// Prototype functions
+int compChoice();
+int userChoice();
+void winner(int, int);
+
+/*--------------------------------
+# Exercise #24 - Rock, Paper, Scissors, Lizard, Spock
+# accepts no arguments
+# gets both the players and computers choice and
+# determines and outputs the winner
+----------------------------------*/
+
+void rpslsMain()
+{
+	char game = 'y';
+
+	// Greeting and input for game
+	cout << "Welcome to RPSLS. Enter 'y' to play: ";
+	cin.ignore();
+	cin.get(game);
+
+	// Generates and returns random int
+	while (tolower(game) == 'y')
+	{
+		int cChoice2 = 0;
+		int cChoice = compChoice();
+		if (cChoice == 0)
+		{
+			string cChoice2 = "rock";
+		}
+		else if (cChoice == 1)
+		{
+			string cChoice2 = "rock";
+		}
+		else if (cChoice == 2)
+		{
+			string cChoice2 = "rock";
+		}
+		else if (cChoice == 3)
+		{
+			string cChoice2 = "rock";
+		}
+		else if (cChoice == 4)
+		{
+			string cChoice2 = "rock";
+		}
+		
+		int uChoice = userChoice();
+		cout << "The computer played " << cChoice2 << endl;
+		winner(cChoice, uChoice);
+
+		cout << cChoice;
+		cout << "Would you like to play again (y/n): ";
+		cin.ignore();
+		cin.get(game);
+	}
+
+
+
+}
+
+int compChoice()
+{
+	// Generates and returns random int
+	unsigned seed = time(0);
+	srand(seed);
+	int cChoice = rand() % 4;
+
+	return cChoice;
+}
+
+int userChoice()
+{
+	string uInput;
+	int uChoice = 0;
+	bool input = false;
+	
+	while (input == false)
+	{
+		cout << "Choose your weapon (rock, paper, scissors, lizzard, spock): ";
+		cin >> uInput;
+		if (tolower(uInput == "rock"))
+		{
+			int uChoice = 0;
+		}
+		else if (tolower(uInput == "paper"))
+		{
+			int uChoice = 1;
+		}
+		else if (tolower(uInput == "scissors"))
+		{
+			int uChoice = 2;
+		}
+		else if (tolower(uInput == "lizzard"))
+		{
+			int uChoice = 3;
+		}
+		else if (tolower(uInput == "spock"))
+		{
+			int uChoice = 4;
+		}
+		else
+		{
+			input = false;
+		}
+		input = true;
+	}
+	return uChoice;
+}
+
+void winner(int cChoice, int uChoice)
+{
+	if (cChoice == uChoice)
+		cout << "You tied\n";
+
+	else if(cChoice == 0 && uChoice == 1)
+		cout << "You tied\n";
+
+	else if (cChoice == 0 && uChoice == 2)
+		cout << "You lose\n";
+
+	else if (cChoice == 0 && uChoice == 3)
+		cout << "You lose\n";
+
+	else if (cChoice == 0 && uChoice == 4)
+		cout << "You win\n";
+
+	else if (cChoice == 1 && uChoice == 0)
+		cout << "You lose\n";
+
+	else if (cChoice == 1 && uChoice == 2)
+		cout << "You win\n";
+
+	else if (cChoice == 1 && uChoice == 3)
+		cout << "You win\n";
+	
+	else if (cChoice == 1 && uChoice == 4)
+		cout << "You lose\n";
+
+	else if (cChoice == 2 && uChoice == 0)
+		cout << "You win\n";
+
+	else if (cChoice == 2 && uChoice == 1)
+		cout << "You lose\n";
+
+	else if (cChoice == 2 && uChoice == 3)
+		cout << "You lose\n";
+
+	else if (cChoice == 2 && uChoice == 4)
+		cout << "You win\n";
+
+	else if (cChoice == 3 && uChoice == 0)
+		cout << "You win\n";
+
+	else if (cChoice == 3 && uChoice == 1)
+		cout << "You lose\n";
+
+	else if(cChoice == 3 && uChoice == 2)
+		cout << "You win\n";
+
+	else if (cChoice == 3 && uChoice == 4)
+		cout << "You lose\n";
+
+	else if (cChoice == 4 && uChoice == 0)
+		cout << "You lose\n";
+
+	else if (cChoice == 4 && uChoice == 1)
+		cout << "You win\n";
+
+	else if (cChoice == 4 && uChoice == 2)
+		cout << "You lose\n";
+
+	else if (cChoice == 4 && uChoice == 3)
+		cout << "You win\n";
 }
