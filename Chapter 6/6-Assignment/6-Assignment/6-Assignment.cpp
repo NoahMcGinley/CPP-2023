@@ -9,8 +9,6 @@ void overloadedHospital();
 void population();
 void rpslsMain();
 
-
-
 /*------------------------
 # Exercise 103 - Exercise menu
 # main accepts no arguments
@@ -50,6 +48,10 @@ int main()
 		else if (choice == 4)
 		{
 			rpslsMain();
+		}
+		else if (choice == 5)
+		{
+			cout << "Exited program\n";
 		}
 		else
 		{
@@ -359,7 +361,6 @@ void winner(int, int);
 # gets both the players and computers choice and
 # determines and outputs the winner
 ----------------------------------*/
-
 void rpslsMain()
 {
 	char game = 'y';
@@ -372,35 +373,37 @@ void rpslsMain()
 	// Generates and returns random int
 	while (tolower(game) == 'y')
 	{
-		int cChoice2 = 0;
+		string cChoice2;
 		int cChoice = compChoice();
+
+		// Determines computer's weapon
 		if (cChoice == 0)
 		{
-			string cChoice2 = "rock";
+			cChoice2 = "rock";
 		}
-		else if (cChoice == 1)
+		if (cChoice == 1)
 		{
-			string cChoice2 = "rock";
+			cChoice2 = "paper";
 		}
-		else if (cChoice == 2)
+		if (cChoice == 2)
 		{
-			string cChoice2 = "rock";
+			cChoice2 = "scissors";
 		}
-		else if (cChoice == 3)
+		if (cChoice == 3)
 		{
-			string cChoice2 = "rock";
+			cChoice2 = "lizzard";
 		}
-		else if (cChoice == 4)
+		if (cChoice == 4)
 		{
-			string cChoice2 = "rock";
+			cChoice2 = "spock";
 		}
-		
+
 		int uChoice = userChoice();
 		cout << "The computer played " << cChoice2 << endl;
 		winner(cChoice, uChoice);
 
-		cout << cChoice;
-		cout << "Would you like to play again (y/n): ";
+		// Prompts user to play again
+		cout << "\nWould you like to play again (y/n): ";
 		cin.ignore();
 		cin.get(game);
 	}
@@ -409,6 +412,8 @@ void rpslsMain()
 
 }
 
+// Accepts no arguments
+// Generates and returns random int
 int compChoice()
 {
 	// Generates and returns random int
@@ -419,12 +424,15 @@ int compChoice()
 	return cChoice;
 }
 
+// Accepts no arguments
+// Prompts user for choice of weapon and returns it
 int userChoice()
 {
 	string uInput;
 	int uChoice = 0;
 	bool input = false;
 	
+	// Validates input
 	while (input == false)
 	{
 		cout << "Choose your weapon (rock, paper, scissors, lizzard, spock): ";
@@ -432,39 +440,46 @@ int userChoice()
 		if (tolower(uInput == "rock"))
 		{
 			int uChoice = 0;
+			input = true;
+			cout << "You played " << uInput << endl;
 		}
 		else if (tolower(uInput == "paper"))
 		{
 			int uChoice = 1;
+			input = true;
+			cout << "You played " << uInput << endl;
 		}
 		else if (tolower(uInput == "scissors"))
 		{
 			int uChoice = 2;
+			input = true;
+			cout << "You played " << uInput << endl;
 		}
 		else if (tolower(uInput == "lizzard"))
 		{
 			int uChoice = 3;
+			input = true;
+			cout << "You played " << uInput << endl;
 		}
 		else if (tolower(uInput == "spock"))
 		{
 			int uChoice = 4;
+			input = true;
+			cout << "You played " << uInput << endl;
 		}
-		else
-		{
-			input = false;
-		}
-		input = true;
 	}
 	return uChoice;
 }
 
+// Accepts ints cChoice and uChoice
+// Determines winner based on choices
 void winner(int cChoice, int uChoice)
 {
 	if (cChoice == uChoice)
 		cout << "You tied\n";
 
 	else if(cChoice == 0 && uChoice == 1)
-		cout << "You tied\n";
+		cout << "You win\n";
 
 	else if (cChoice == 0 && uChoice == 2)
 		cout << "You lose\n";
