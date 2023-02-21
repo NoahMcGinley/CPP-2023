@@ -1,68 +1,6 @@
-#include <fstream>
 #include <iostream>
 #include <string>
 using namespace std;
-
-// Prototype functions
-void gradeBook();
-void worldSeries();
-//void ticTacToe();
-//void magic8Ball();
-
-/*--------------------
-# main accepts no arguments
-# serves as the menu for the
-# different exercises and calls
-# the corresponding function depending
-# on the users choice
-----------------------*/
-int main()
-{
-	// Declares variables
-	int choice;
-
-	do
-	{
-		cout << "Welcome to the exercise menu! Enter a choice 1 - 5\n"
-			<< "1. Exercise #12 - Grade Book\n"
-			<< "2. Exercise 16 - World Series Champions\n"
-			<< "3. Exercise #18 - Tic-Tac-Toe\n"
-			<< "4. Exercise #19 - Magic 8 Ball\n"
-			<< "5. Exit Program\n"
-			<< "choice: ";
-		cin >> choice;
-
-		cout << "----------------------------------------------\n\n";
-
-		switch (choice)
-		{
-		case 1:
-			gradeBook();
-			break;
-		case 2:
-			worldSeries(); 
-			break;
-		case 3:
-			//ticTacToe();
-			break;
-		case 4:
-			//magic8Ball();
-			break;
-		case 5:
-			cout << "Exited Program\n";
-			break;
-		default:
-			cout << "Invalid input, enter a number 1-5\n";
-		}
-
-	} while (choice != 5);
-	
-	
-
-	return 0;
-}
-
-////////////////////////////////////////////////////////////////////////////
 
 // Prototype functions
 char getLetterGrade(double);
@@ -207,25 +145,4 @@ char getLetterGrade(double average)
 		return 'D';
 	else
 		return 'F';
-}
-
-////////////////////////////////////////////////////////////////////////////
-
-/*-------------------------------
-# worldSeries() accepts no arguments
-# it reads from Teams.txt and WorldSeriesWinners.txt
-# and asks the user to enter a team. It then outputs
-# how many times that team has won the world series
------------------------------------*/
-void worldSeries()
-{
-	string teamList[29], team;
-	ifstream inFileTeams(R"(C:\Users\SNM00013\Desktop\CPP-2022\files\data_files\Teams.txt)");
-	ifstream inFileWinners(R"(C:\Users\SNM00013\Desktop\CPP-2022\files\data_files\WorldSeriesWinners.txt)");
-
-	for (int i = 1; i <= 29; i++)
-	{
-		getline(cin, team);
-		cout << team << endl;
-	}
 }
