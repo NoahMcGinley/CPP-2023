@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
 
 /*-------------------------------
 # worldSeries() accepts no arguments
@@ -38,6 +42,8 @@ void worldSeries()
 			i++;
 		}
 
+		// Adds to wincount if the users choice of team matches the winner for
+		// that given year
 		for (int i = 0; i < 108; i++)
 		{
 			if (teamChoice == winnerList[i])
@@ -54,5 +60,9 @@ void worldSeries()
 			//// Outputs final result
 			cout << "The " << teamChoice << " have " << winCount << " world series win(s)\n\n";
 		}
+
+		// Closes files
+		inFileTeams.close();
+		inFileWinners.close();
 	}
 }

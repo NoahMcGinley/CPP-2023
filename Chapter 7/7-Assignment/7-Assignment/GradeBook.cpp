@@ -130,9 +130,11 @@ void gradeBook()
 
 }
 
-// getLetterGrade accepts double average and int i
-// It determines the student's overall letter grade
-// and returns it
+/*--------------------------------------------
+# getLetterGrade accepts double average and int i
+# It determines the student's overall letter grade
+# and returns it
+----------------------------------------------*/
 char getLetterGrade(double average)
 {
 	if (average >= 90)
