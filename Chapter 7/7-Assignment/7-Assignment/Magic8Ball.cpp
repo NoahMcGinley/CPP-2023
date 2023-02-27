@@ -13,10 +13,10 @@ string getResponse();
 -------------------------------------*/
 void magic8Ball()
 {
-	char game = 'y';
+	char game = 'O';
 	string response;
 
-	while (tolower(game) == 'y')
+	while (tolower(game) == 'O')
 	{
 		// Takes question from user
 		cout << "What is your question?: ";
