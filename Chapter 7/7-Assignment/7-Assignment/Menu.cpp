@@ -16,7 +16,8 @@ int displayMenu()
 		<< "2. Exercise 16 - World Series Champions\n"
 		<< "3. Exercise #18 - Tic-Tac-Toe\n"
 		<< "4. Exercise #19 - Magic 8 Ball\n"
-		<< "5. Exit Program\n"
+		<< "5. Exercise #20 - 1994 Gas Prices\n"
+		<< "6. Exit\n"
 		<< "choice: ";
 	cin >> choice;
 

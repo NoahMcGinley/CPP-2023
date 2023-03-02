@@ -10,6 +10,7 @@ void gradeBook();
 void worldSeries();
 void ticTacToe();
 void magic8Ball();
+void gasPrices();
 
 /*--------------------
 # main accepts no arguments
@@ -40,6 +41,10 @@ int main()
 			magic8Ball();
 		}
 		else if (choice == 5)
+		{
+			gasPrices();
+		}
+		else if (choice == 6)
 		{
 			cout << "Exited Program.\n";
 			break;
