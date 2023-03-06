@@ -11,7 +11,7 @@ using namespace std;
 -----------------------------------*/
 void worldSeries()
 {
-	// Decalres and initializes variables
+	// Decalares and initializes variables
 	string teamList[29], winnerList[108], teamChoice, winner;
 	ifstream inFileTeams(R"(C:\Users\SNM00013\Desktop\CPP-2022\files\data_files\Teams.txt)");
 	ifstream inFileWinners(R"(C:\Users\SNM00013\Desktop\CPP-2022\files\data_files\WorldSeriesWinners.txt)");

@@ -9,6 +9,7 @@ void displayLowest(vector<double>);
 void displayHighest(vector<double>);
 void averageMonths(vector<double>);
 string determineMonth(int);
+string determineMonth2(int);
 
 /*-----------------------------------
 # gasPrices() accepts no arguments
@@ -33,6 +34,10 @@ void gasPrices()
 	displayLowest(priceList);
 	displayHighest(priceList);
 	averageMonths(priceList);
+
+	inFile.close();
+
+	cout << "\n\n";
 }
 
 
@@ -61,7 +66,7 @@ void displayLowest(vector<double> priceList)
 	string month = determineMonth(weekNum);
 
 	// Outputs price, week, month
-	cout << lowest << "\t" << weekNum << "\t" << month << endl;
+	cout << "The lowest price is " << lowest << " which is in week " << weekNum << " in " << month << endl;
 }
 
 
@@ -91,29 +96,44 @@ void displayHighest(vector<double> priceList)
 	string month = determineMonth(weekNum);
 
 	// Outputs price, week, month
-	cout << highest << "\t" << weekNum << "\t" << month << endl;
+	cout << "The Highest price is " << highest << " which is in week " << weekNum << " in " << month << endl;
 }
 
 
 /*-----------------------------------
-# averageMonths() accepts no arguments
+# averageMonths() accepts vector priceList
 # it calculates the averages for all the months
 --------------------------------------*/
 void averageMonths(vector<double> priceList)
 {
-	int weekNum = 1, i = 0;
-	double average, total = 0;
+	// Decalares and initializes variables
+	int i2 = 0;
+	int monthCount = 1;
 
-	for (int monthCount = 1; monthCount <= 12; monthCount++)
+	// Loops through months
+	for (int i = 0; i < 12; i++)
 	{
-		while (weekNum / 4.4 + 1 == monthCount)
+		int weekNum = 1;
+		double total = 0, average;
+
+		// Loops for the amount of weeks in the current month
+		while (true)
 		{
-			total += priceList[i];
-			i++;
+			total += priceList[i2];
+			double weekCount = weekNum / 4.4;
+			if (weekCount > 1)
+			{
+				break;
+			}
 			weekNum++;
+			i2++;
 		}
-		average = (total / i) + 1;
-		cout << "The average for January is: " << average << endl;
+
+		// Calculates and outputs average
+		average = (total / weekNum);
+		cout << "The average for " << determineMonth2(monthCount) << " is: " << average << endl;
+
+		monthCount++;
 	}
 }
 
@@ -127,6 +147,46 @@ string determineMonth(int weekNum)
 {
 	// Decalres and initializes variables
 	int monthNum = (weekNum / 4.4) + 1;
+	string month;
+
+	// Determines month
+	if (monthNum == 1)
+		month = "January";
+	else if (monthNum == 2)
+		month = "Febuary";
+	else if (monthNum == 3)
+		month = "March";
+	else if (monthNum == 4)
+		month = "April";
+	else if (monthNum == 5)
+		month = "May";
+	else if (monthNum == 6)
+		month = "June";
+	else if (monthNum == 7)
+		month = "July";
+	else if (monthNum == 8)
+		month = "August";
+	else if (monthNum == 9)
+		month = "September";
+	else if (monthNum == 10)
+		month = "October";
+	else if (monthNum == 11)
+		month = "November";
+	else if (monthNum == 12)
+		month = "December";
+
+	return month;
+}
+
+
+/*-----------------------------------
+# determineMonth2() accepts int monthNum
+# it calculates and returns the month
+# using the month int
+--------------------------------------*/
+string determineMonth2(int monthNum)
+{
+	// Decalres and initializes variables
 	string month;
 
 	// Determines month

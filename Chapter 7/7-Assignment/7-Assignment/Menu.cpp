@@ -21,7 +21,7 @@ int displayMenu()
 		<< "choice: ";
 	cin >> choice;
 
-	while (choice < 0 || choice > 5)
+	while (choice < 1 || choice > 6)
 	{
 		cout << "Invalid choice, choose a number 1-5: ";
 		cin >> choice;

@@ -13,14 +13,16 @@ string getResponse();
 -------------------------------------*/
 void magic8Ball()
 {
-	char game = 'O';
-	string response;
+	char game = 'y';
+	string response, input;
+	char ch;
 
-	while (tolower(game) == 'O')
+	while (tolower(game) == 'y')
 	{
 		// Takes question from user
+		cin.ignore();
 		cout << "What is your question?: ";
-		cin >> response;
+		getline(cin, input);
 
 		// Calls getResponse() to collect a random response from 8_ball_responses.txt
 		response = getResponse();
