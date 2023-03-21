@@ -3,6 +3,7 @@
 using namespace std;
 
 vector<double> selectionSort(vector<double>);
+void swap(double&, double&);
 
 /*----------------------------------------------
 #  accountValidation() accepts no arguments
@@ -13,15 +14,6 @@ vector<double> selectionSort(vector<double>);
 ------------------------------------------------*/
 void accountModification()
 {
-	// Variables
-	int i = 0, position = -1;
-	double input;
-	bool found = false;
-
-	// Takes account number from user
-	cout << "Enter an account number to search: ";
-	cin >> input;
-
 	// Initializes vector
 	vector<double>numbers{
 		5658845,	4520125,	7895122,	8777541,	8451277,	1302850,
@@ -29,42 +21,61 @@ void accountModification()
 		1005231,	6545231,	3852085,	7576651,	7881200,	4581002, };
 
 	// Sorts vector
-	selectionSort(numbers);
+	numbers = selectionSort(numbers);
 
-	// Variables
-	int first = 0, last = numbers.size() - 1, position = -1;
-	bool found = false;
-	
-	// Searches array using binary method
-	while (!found && first <= last)
+	// Loops until user enters 1111111
+	while (true)
 	{
-		double middle = (first + last) / 2;
+		// Variables
+		double i = 0, position = -1;
+		double input;
+		bool found = false;
 
-		if (middle == input)
+		// Takes account number from user
+		cout << "Enter an account number to search.\nEnter 1111111 to exit.\n> ";
+		cin >> input;
+
+		// Exits if user enters 1111111
+		if (input == 1111111)
 		{
-			found = true;
-			position = middle;
+			cout << "Exited modified account checker.\n\n\n";
+			break;
 		}
-		if (middle >= input)
+
+		// Variables
+		int first = 0, last = numbers.size();
+
+		////// Searches array using binary method
+		while (!found && first <= last)
 		{
-			last = middle - 1;
+			int middle = (first + last) / 2;
+
+			if (numbers[middle] == input)
+			{
+				found = true;
+				position = middle;
+			}
+			if (numbers[middle] >= input)
+			{
+				last = middle - 1;
+			}
+			if (numbers[middle] <= input)
+			{
+				first = middle + 1;
+			}
+		}
+
+		// Outputs where the account number was found, if at all
+		if (position == -1)
+		{
+			cout << "Account number not found in list.\n\n";
 		}
 		else
 		{
-			first = middle + 1;
+			cout << "The account number you entered is #" << position + 1 << "\n\n";
 		}
 	}
-
-	// Outputs where the account number was found, if at all
-	if (position == -1)
-	{
-		cout << "Account number not found in list.\n\n\n";
-	}
-	else
-	{
-		cout << "The account number you entered is #" << position + 1 << "\n\n\n";
-	}
-
+	cout << endl;
 }
 
 
@@ -76,13 +87,13 @@ void accountModification()
 vector<double> selectionSort(vector<double>numbers)
 {
 	// Variables
-	int minIndex, minValue;
+	double minIndex, minValue;
 
-	for (int start = 0; start < (numbers.size() - 1); start++)
+	for (double start = 0; start < (numbers.size() - 1); start++)
 	{
 		minIndex = start;
 		minValue = numbers[start];
-		for (int i = start + 1; i < numbers.size(); i++)
+		for (double i = start + 1; i < numbers.size(); i++)
 		{
 			if (numbers[i] < minValue)
 			{
@@ -90,6 +101,15 @@ vector<double> selectionSort(vector<double>numbers)
 				minIndex = i;
 			}
 		}
+		swap(numbers[minIndex], numbers[start]);
 	}
 	return numbers;
+}
+
+// Swaps values
+void swap(double& a, double& b)
+{
+	double temp = a;
+	a = b;
+	b = temp;
 }
