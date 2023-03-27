@@ -5,8 +5,8 @@ using namespace std;
 int menu();
 void testScores();
 void pointerRewrite();
-//void modeFunction();
-//void elementShifter();
+void modeFunction();
+void elementShifter();
 
 /*-----------------------------------------
 # menu() accepts no aguments
@@ -31,10 +31,10 @@ int main()
 			pointerRewrite();
 			break;
 		case 3:
-		//	modeFunction();
+			modeFunction();
 			break;
 		case 4:
-		//	elementShifter();
+			elementShifter();
 			break;
 		case 5:
 			cout << "Exited Program\n";
