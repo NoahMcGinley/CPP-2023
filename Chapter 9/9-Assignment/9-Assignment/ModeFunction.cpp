@@ -1,34 +1,51 @@
 #include <iostream>
 using namespace std;
 
+// Prototype functions
 int getMode(int[], int);
 void selectionSort(int[], int);
 void swap(int*, int*);
 
-
+/*---------------------------------------
+# modeFunction accepts no arguments
+# It initilizes an array and calls getMode
+# to receive the mode
+-----------------------------------------*/
 void modeFunction()
 {
 	const int SIZE = 10;
-	int arry[SIZE] = { 4, 5, 9, 6, 3, 7, 5, 3, 5, 8, };
+	int arry[SIZE] = { 1, 4, 9, 6, 3, 7, 1, 4, 1, 8, };
 
 	getMode(arry, SIZE);
 }
 
 
+/*---------------------------------------
+# getMode() accepts int arry[] and int SIZE
+# It calls selectionSort to sort the array
+# and then finds the mode by counting through
+# the numbers
+-----------------------------------------*/
 int getMode(int arry[], int SIZE)
 {
-    int mode = 0, *arryPtr = arry, modeCount = 0, modeCount2 = 0;
+    int mode = arry[0], *arryPtr = arry, currCount = 0, maxCount = 0;
     selectionSort(arry, SIZE);
-	for (int i = 0; i < SIZE; i++)
+
+    for (int i = 0; i < SIZE; i++)
+        cout << arry[i] << endl;
+
+	for (int i = 1; i < SIZE; i++)
 	{
-        if (arry[i] == arry[i+1])
+        if (arry[i] == arry[i-1])
         {   
-            cout << arry[i] << endl;
-            modeCount++;
-            if (modeCount > modeCount2)
+            currCount++;
+            if (currCount > maxCount)
             {
                 mode = arry[i];
-                modeCount = modeCount2;
+            }
+            else
+            {
+                currCount = 1;
             }
         }
 	}
@@ -37,6 +54,10 @@ int getMode(int arry[], int SIZE)
 }
 
 
+/*---------------------------------------
+# selectionSort() accepts int arry[] and int SIZE
+# It sorts the accepted array
+-----------------------------------------*/
 void selectionSort(int array[], int SIZE)
 {
     // Declares Variables
@@ -60,6 +81,7 @@ void selectionSort(int array[], int SIZE)
     }
 }
 
+// Swaps two values using pointers
 void swap(int* a, int* b)
 {
     int temp = *a;

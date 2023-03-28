@@ -1,30 +1,54 @@
 #include <iostream>
 using namespace std;
 
-void shift(int[], int);
+// Prototoype functions
+int* shift(int[], const int);
 
+/*---------------------------------------
+# elementShifter() accepts no arguments
+# it creates an array and passed it to shift,
+# where it is copied to a new array that is
+# one element larger
+------------------------------------------*/
 void elementShifter()
 {
-	const int SIZE = 11;
+	// Initializes variables
+	const int SIZE = 10;
 	int arry[SIZE] = { 5, 1, 9, 6, 3, 7, 5, 3, 4, 8, };
 
-	shift(arry, SIZE);
+	int *arryPtr = shift(arry, SIZE);
 }
 
-void shift(int arry[], int SIZE)
+/*--------------------------------------
+# shift() accepts in arry[] and const int SIZE
+# it assigns the value of the original array
+# to the new array by increment the array pointer
+----------------------------------------*/
+int* shift(int arry[], const int SIZE)
 {
-	int* arryPtr = arry, temp = arry[2];
+	// Initializes variables
+	const int NEW_SIZE = 11;
+	int newArry[NEW_SIZE] = {0};
+	int temp = arry[2];
 
-	arry[0] = 0;
-	for (int i = 5; i < SIZE-2; i++)
+	int* arryPtr = newArry;
+
+	// Increments *arryPtr
+	arryPtr++;
+
+	// Loops to assigns the values of the original array to the new array
+	for (int i = 0; i < SIZE + 1; i++)
 	{
-		arry[i] = temp;
-		temp = arry[i+1];
-		arry[i+1] = arry[i];
+		*arryPtr++ = *arry++;
 	}
 
-	for (int i = 0; i < SIZE; i++)
+	// Outputs array
+	arryPtr = newArry;
+	for (int i = 0; i < SIZE + 1; i++)
 	{
-		cout << arry[i];
+		cout << *arryPtr << endl;
+		arryPtr++;
 	}
+
+	return arryPtr;
 }

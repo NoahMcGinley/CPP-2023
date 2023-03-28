@@ -27,7 +27,7 @@ void pointerRewrite()
 	int total = something(num1Ptr, num2Ptr);
 
 	// Outputs sum
-	cout << "The result is " << total;
+	cout << "The result is " << total << "\n\n";
 }
 
 /*-------------------------------------
