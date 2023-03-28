@@ -1,0 +1,7 @@
+int newArry[SIZE+1] = {0};
+
+*newArry++
+for (int i = 0; i < SIZE; i++) {
+	//newArry[i+1] = arry[i];
+	*newArry++ = *arry++
+}
