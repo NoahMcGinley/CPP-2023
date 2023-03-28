@@ -1,0 +1,27 @@
+int getMode(int arry[], int SIZE)
+{
+	if size 0
+		return -1
+	
+    int modeVal = arry[0], *arryPtr = arry, currCount = 1, maxCount = 1;
+    selectionSort(arry, SIZE);
+
+	for (int i = 1; i < SIZE; i++)
+	{
+        if (arry[i] == arry[i-1])
+        {   
+            cout << arry[i] << endl;
+            currCount++;
+            if currCount > maxCount
+            {
+                modeVal = arry[i];
+            }
+        }
+	else {
+		currCount = 1
+	}
+	}
+
+	return modeVal
+    cout << "\n\t" << mode;
+}
