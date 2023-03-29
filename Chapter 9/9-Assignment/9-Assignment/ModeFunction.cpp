@@ -13,10 +13,29 @@ void swap(int*, int*);
 -----------------------------------------*/
 void modeFunction()
 {
+    // Initializes variables and array
 	const int SIZE = 10;
-	int arry[SIZE] = { 1, 4, 9, 6, 3, 7, 1, 4, 1, 8, };
+	int arry[SIZE] = { 4, 0, 9, 6, 3, 7, 2, 10, 1, 8, };
 
-	getMode(arry, SIZE);
+    // Outputs array contents
+    cout << "Array in which to find mode\n------------------------------\n";
+    for (int i = 0; i < SIZE; i++)
+        cout << arry[i] << endl;
+
+    // Calls getMode to find the mode of the array
+	int mode = getMode(arry, SIZE);
+
+    // Determines if their is a mode or not
+    if (mode == -1)
+    {
+        cout << "\nNo mode found\n\n\n";
+    }
+    else
+    {
+        cout << "\nThe mode is " << mode << "\n\n\n";
+        cout << mode;
+    }
+
 }
 
 
@@ -28,29 +47,33 @@ void modeFunction()
 -----------------------------------------*/
 int getMode(int arry[], int SIZE)
 {
-    int mode = arry[0], *arryPtr = arry, currCount = 0, maxCount = 0;
+    // Initializes variables
+    int* arryPtr = arry;
+    int count = *arryPtr, mode = count, currCount = 1, maxCount = 1;
     selectionSort(arry, SIZE);
 
-    for (int i = 0; i < SIZE; i++)
-        cout << arry[i] << endl;
 
-	for (int i = 1; i < SIZE; i++)
-	{
-        if (arry[i] == arry[i-1])
-        {   
+    // Finds the mode by keeping a counter depending
+    // on whether or not the index before it is the same
+    mode = -1;
+    for (int i = 1; i < SIZE; i++) // Loops through array
+    {
+        if (*(arryPtr + i) == count) // Increases counter if the value is the same of that prior
+        {
             currCount++;
-            if (currCount > maxCount)
-            {
-                mode = arry[i];
-            }
-            else
-            {
-                currCount = 1;
-            }
         }
-	}
-    cout << endl << mode;
-	return -1;
+        else
+        {
+            if (currCount > maxCount) // Resets the counter if the value is not the same
+            {
+                maxCount = currCount;
+                mode = count;
+            }
+            currCount = 1;
+            count = *(arryPtr + i);
+        }
+    }
+    return mode;
 }
 
 

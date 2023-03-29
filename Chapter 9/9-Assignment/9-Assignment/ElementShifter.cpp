@@ -16,7 +16,16 @@ void elementShifter()
 	const int SIZE = 10;
 	int arry[SIZE] = { 5, 1, 9, 6, 3, 7, 5, 3, 4, 8, };
 
-	int *arryPtr = shift(arry, SIZE);
+	int* arryPtr = arry;
+	cout << "Original array\n";
+	for (int i = 0; i < SIZE; i++)
+	{
+		cout << *arryPtr << endl;
+		arryPtr++;
+	}
+
+	cout << "\nShifted array\n";
+	shift(arry, SIZE);
 }
 
 /*--------------------------------------
