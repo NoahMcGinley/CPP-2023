@@ -1,5 +1,7 @@
-a b
-c d
-e f
-z i
-i o
+a
+b
+c
+d
+s
+a a
+t y

@@ -6,6 +6,7 @@ using namespace std;
 
 void updateFile(string[], int);
 void addAthlete();
+void readFile();
 
 int main()
 {
@@ -19,13 +20,9 @@ int main()
 void addAthlete()
 {
 	const int SIZE = 4;
-	string arry[4][3][4] =
-	{
-				 { {"a", "b", "c", "d"}, {"e", "f", "g", "h"}},
-				 { {"i", "j", "k", "l"}, {"m", "n", "o", "p"}, {"q", "r", "s", "t"}}
-	};
+	string arry[SIZE] = { "a b", "b c", "c d", "d e" };
+	updateFile(arry, SIZE);
 }
-
 
 /*--------------------------------
 # addAthlete accepts a string array
@@ -36,8 +33,9 @@ void addAthlete()
 void updateFile(string athleteArry[], int SIZE)
 {
 	// Variables and files
-	ofstream athleteFile(R"(C:\Users\SNM00013\Desktop\CPP-2022\files\data_files\demoAthletes.txt)");
+	ofstream athleteFile(R"(C:\Users\SNM00013\Desktop\CPP-2022\files\data_files\demoAthletes2.txt)");
 	string newAthlete;
+	string name;
 
 	// Validates file
 	if (!athleteFile)
@@ -53,11 +51,49 @@ void updateFile(string athleteArry[], int SIZE)
 		// Loops through vector to write it to the file
 		for (int i = 0; i < SIZE; i++)
 		{
-			cout << athleteArry[i] << endl;
 			athleteFile << athleteArry[i] << endl;
 		}
 		athleteFile << newAthlete << endl;
 
+		readFile();
+
 	}
 	athleteFile.close();
+}
+
+/*--------------------------------
+# readFile accepts no arguments
+# It opens the file of athletes
+# and puts the names into a vector
+----------------------------------*/
+void readFile()
+{
+	// Variables and files
+	ifstream athleteFile(R"(C:\Users\SNM00013\Desktop\CPP-2022\files\data_files\demoAthletes2.txt)");
+	vector<string> nameList;
+	string name;
+	string newAthlete;
+	int i = 0;
+
+	// Validates file
+	if (!athleteFile)
+	{
+		cout << "File not found.\n";
+	}
+	else
+	{
+		// Reads file to add to vector
+		while (getline(athleteFile, name))
+		{
+			nameList.push_back(name);
+			i++;
+		}
+
+		for (int i = 0; i < nameList.size(); i++)
+		{
+			cout << nameList[0] << endl;
+		}
+	}
+	athleteFile.close();
+
 }
